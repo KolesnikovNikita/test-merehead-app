@@ -1,6 +1,8 @@
 
 .App {
-    margin-bottom: 15px;
+    margin: 5px auto;
+    width: 75%;
+    padding-top: 15px;
 }
 
 .form {
@@ -8,5 +10,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-2);
+  color: var(--greyDark);
+}
+
+.page-link {
+    text-decoration: none;
+    padding: 8px 16px;
+}
+
+.page-item {
+    display: block;
+}
+
+.create-button {
+    text-align: center;
 }

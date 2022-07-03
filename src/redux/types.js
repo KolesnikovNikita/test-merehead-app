@@ -3,3 +3,4 @@ export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS';
 export const GET_USERS_FAILED = 'GET_USERS_FAILED';
 export const POST_USERS_CREATE = 'POST_USERS_CREATE';
 export const DELETE_USER = 'DELETE_USER';
+export const EDIT_USER = 'EDIT_USER';

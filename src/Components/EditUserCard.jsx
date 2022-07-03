@@ -10,16 +10,16 @@ import * as type from '../redux/types';
 import Stack from '@mui/material/Stack';
 import '../App.css';
 
-function UserForm ({setOpenUserModal}) {
+function EditUserCard (props) {
     const dispatch = useDispatch()
     const wrapperStyle = {padding:'30px 20px', width: 300, position: 'fixed', margin: 'auto', top: '120px', right: 0, bottom: 0, left: 0};
     const headerStyle = {margin: 0};
     const inputStyle = {marginBottom: '10px'};
 
     const [formValues, setFormValues] = useState({
-        name: '',
-        surname: '',
-        desc: '',
+        name: props.user.name,
+        surname: props.user.surname,
+        desc: props.user.desc,
     })
 
     function handleInputChange(event) {
@@ -32,19 +32,17 @@ function UserForm ({setOpenUserModal}) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        dispatch({type: type.POST_USERS_CREATE, user: formValues});
-        setOpenUserModal(false);
-        
+        dispatch({type: type.EDIT_USER, id: props.user.user_id, data: formValues})
+        props.setEditUserModal(null)
     }
 
     return(
-        <Grid>
-            <Paper evelation={20} style={wrapperStyle} >
+            <Paper className="form" evelation={20} style={wrapperStyle} >
                 <Grid align="center">
-                    <h2 style={headerStyle}>Sign Up</h2>
-                    <Typography variant="caption">Please fill this form to create a user</Typography>
+                    <h2 style={headerStyle}>Edit your information</h2>
+                    <Typography variant="caption">Please edit your information</Typography>
                 </Grid>
-        <form className="form" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <TextField
             required
             style={inputStyle}
@@ -80,14 +78,13 @@ function UserForm ({setOpenUserModal}) {
             />
             <div>
             <Stack spacing={5} direction="row">
-            <Button onClick={() => setOpenUserModal(false)} variant="outlined" color="error">Cancel</Button>
-            <Button type="submit" color="primary" variant="contained">Add User</Button>
+            <Button onClick={() => props.setEditUserModal(null)} variant="outlined" color="error">Cancel</Button>
+            <Button type="submit" color="primary" variant="contained">Confirm Editing</Button>
             </Stack>
             </div>
         </form>
-        </Paper>
-        </Grid>
+        </Paper>  
     )
 }
 
-export default UserForm;
+export default EditUserCard;

@@ -17,12 +17,21 @@ function* createUser(params) {
 }
 
 function* deleteUser(params) {
-    console.log(params)
     try {
         yield call(api.delete, `/user/${params.id}`)
         yield call(fetchUsers)
     } catch(e) {
         yield put ({ type: type.GET_USERS_FAILED, message: e.message });
+    }
+}
+
+function* editUser(params) {
+    console.log(params)
+    try {
+        yield call(api.put, `/user/${params.id}`,params.data)
+        yield call(fetchUsers)
+    } catch(e) {
+        yield put ({ type: type.EDIT_USER, message: e.message });
     }
 }
 
@@ -39,6 +48,7 @@ function* userSaga() {
     yield takeEvery(type.GET_USERS_REQUESTED, fetchUsers)
     yield takeEvery(type.POST_USERS_CREATE, createUser)
     yield takeEvery(type.DELETE_USER, deleteUser)
+    yield takeEvery(type.EDIT_USER, editUser)
 }
 
 export default userSaga;

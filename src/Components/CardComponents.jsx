@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {useState} from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -31,6 +32,7 @@ function UserCard(props) {
       </CardContent>
       <CardActions>
         <Button onClick={() => handleDeleteUser(props.user.user_id)} size="small">Delete</Button>
+        <Button onClick={() => props.setEditUserModal(props.user)} size="small">Edit</Button>
       </CardActions>
     </Card>
     </div>
