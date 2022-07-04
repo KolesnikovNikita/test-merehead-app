@@ -1,5 +1,5 @@
-import React from 'react';
-import Users from './Components/UserComponent';
+import React from "react";
+import Users from "./Components/UserComponent";
 
 function App() {
   return (

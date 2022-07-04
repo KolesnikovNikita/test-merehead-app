@@ -1,15 +1,14 @@
-
 .App {
-    margin: 5px auto;
-    width: 75%;
-    padding-top: 15px;
+  margin: 5px auto;
+  width: 75%;
+  padding-top: 15px;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .pagination {
@@ -21,14 +20,14 @@
 }
 
 .page-link {
-    text-decoration: none;
-    padding: 8px 16px;
+  text-decoration: none;
+  padding: 8px 16px;
 }
 
 .page-item {
-    display: block;
+  display: block;
 }
 
 .create-button {
-    text-align: center;
+  text-align: center;
 }
